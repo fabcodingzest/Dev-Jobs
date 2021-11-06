@@ -1,11 +1,14 @@
 module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
         KumbhSans: ['Kumbh Sans', 'sans-serif'],
+      },
+      backgroundImage: {
+        'header-desktop': `url('/src/assets/desktop/bg-pattern-header.svg')`,
       },
       colors: {
         violet: {
