@@ -6,12 +6,8 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="font-KumbhSans">
+    <div className="font-KumbhSans bg-grey-light dark:bg-blue-midnight dark:text-white min-h-screen">
       <Header />
-      <div>
-        <p className="text-[4rem] font-thin">Almost before we knew it</p>
-        <Link to="/">Jobs</Link> |<Link to="/job-detail">Detail</Link>
-      </div>
       <Routes>
         <Route path="/" element={<Navigate replace to="/jobs" />} />
         <Route path="jobs" element={<Jobs />} />
