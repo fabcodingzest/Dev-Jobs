@@ -1,5 +1,5 @@
 const getData = async () => {
-  const res = await fetch('data.json', {
+  const res = await fetch(process.env.PUBLIC_URL + '/data.json', {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
