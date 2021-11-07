@@ -18,6 +18,15 @@ body {
 #toggle:checked ~ label div.toggle-dot{
   @apply translate-x-5;
 }
+
+.checkbox:checked ~ div{
+  @apply bg-violet-dark;
+}
+
+.checkbox:checked ~ div svg{
+  @apply flex;
+}
+
 @tailwind components;
 @tailwind utilities;
 

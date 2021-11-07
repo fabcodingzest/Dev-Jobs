@@ -4,6 +4,7 @@ import getData from '../api/api';
 import Button from '../components/Button';
 import Container from '../components/Container';
 import JobCard from '../components/JobCard';
+import Search from '../components/Search';
 
 const Jobs = () => {
   const [data, setData] = useState([]);
@@ -18,8 +19,9 @@ const Jobs = () => {
   }, []);
   if (!data || data.length === 0) return <p>loading...</p>;
   return (
-    <Container className="pb-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 -mt-8 relative z-10 pb-10">
+    <Container className="pb-10 -mt-8">
+      <Search />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 relative z-10 py-10">
         {data.map((item) => (
           <Link to={`../job-detail/${item.id}`} key={item.id} className="flex justify-center w-full">
             <JobCard detail={item} />
