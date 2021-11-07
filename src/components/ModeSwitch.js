@@ -11,8 +11,8 @@ const ModeSwitch = () => {
       <div>
         <input checked={isDark} onChange={(e) => setIsDark(e.target.checked)} type="checkbox" name="mode" id="toggle" className="hidden" />
         <label htmlFor="toggle">
-          <div className="cursor-pointer w-[2.8rem] h-[1.4rem] flex items-center bg-white rounded-full p-[0.4rem]">
-            <div className="toggle-dot transform duration-300 ease-in-out w-[0.8rem] h-[0.8rem] bg-violet-dark rounded-full"></div>
+          <div className="group cursor-pointer w-[2.8rem] h-[1.4rem] flex items-center bg-white rounded-full p-[0.4rem]">
+            <div className="toggle-dot transform duration-300 ease-in-out w-[0.8rem] h-[0.8rem] bg-violet-dark group-hover:bg-violet-light rounded-full"></div>
           </div>
         </label>
       </div>
