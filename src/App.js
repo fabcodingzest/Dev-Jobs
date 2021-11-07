@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate replace to="/jobs" />} />
         <Route path="jobs" element={<Jobs />} />
-        <Route path="job-detail" element={<JobDetail />} />
+        <Route path="job-detail/:id" element={<JobDetail />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
