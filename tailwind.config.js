@@ -24,6 +24,8 @@ module.exports = {
           light: '#F4F6F8',
           med: '#9DAEC2',
           dark: '#6E8098',
+          btn: '#303642',
+          hover: '#525861',
         },
       },
     },
