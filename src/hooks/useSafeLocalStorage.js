@@ -7,7 +7,7 @@ export function useSafeLocalStorage(key, initialValue) {
       const value = window.localStorage.getItem(key);
       return value ? JSON.parse(value) : initialValue;
     } catch {
-      // this will return undefined mostly
+      // this will return undefined because of no initial value at first
       return initialValue;
     }
   });
@@ -18,7 +18,7 @@ export function useSafeLocalStorage(key, initialValue) {
       window.localStorage.setItem(key, value);
       setValueProxy(value);
     } catch {
-      // just change the value
+      // just change the value if there was already stored value
       setValueProxy(value);
     }
   };

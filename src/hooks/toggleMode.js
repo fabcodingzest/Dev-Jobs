@@ -4,7 +4,7 @@ import { useSafeLocalStorage } from './useSafeLocalStorage';
 
 export function useDarkMode() {
   const prefersDarkMode = usePrefersDarkMode();
-  const [isEnabled, setIsEnabled] = useSafeLocalStorage('theme', undefined);
+  const [isEnabled, setIsEnabled] = useSafeLocalStorage('darkMode', undefined);
 
   const enabled = isEnabled === undefined ? prefersDarkMode : isEnabled;
 

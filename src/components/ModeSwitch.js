@@ -5,7 +5,6 @@ import { useDarkMode } from '../hooks/toggleMode';
 
 const ModeSwitch = () => {
   const [isDark, setIsDark] = useDarkMode();
-  console.log(isDark)
   return (
     <div className="flex justify-between items-center w-[5.6rem]">
       <SunIcon />

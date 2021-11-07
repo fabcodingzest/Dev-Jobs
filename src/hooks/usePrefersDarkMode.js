@@ -6,7 +6,6 @@ export function usePrefersDarkMode() {
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     setValue(mediaQuery.matches);
-    console.log(mediaQuery.matches);
 
     // This is for the case in user changes system preference
     const handler = () => setValue(mediaQuery.matches);
