@@ -15,18 +15,24 @@ body {
   box-sizing: border-box;
 }
 
-#toggle:checked ~ label div.toggle-dot{
+#toggle:checked ~ label div.toggle-dot {
   @apply translate-x-5;
 }
 
-.checkbox:checked ~ div{
-  @apply bg-violet-dark;
+#toggle:focus ~ label div.toggle-dot{
+  @apply ring ring-violet-light;
 }
 
-.checkbox:checked ~ div svg{
+.checkbox:checked ~ div {
+  @apply bg-violet-dark;
+}
+.checkbox:focus ~ div {
+  @apply ring ring-violet-light;
+}
+
+.checkbox:checked ~ div svg {
   @apply flex;
 }
 
 @tailwind components;
 @tailwind utilities;
-

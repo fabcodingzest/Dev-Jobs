@@ -66,10 +66,16 @@ const Search = ({ setData }) => {
           </div>
         </div>
       )}
-      <label className="flex flex-grow items-center relative w-1/3 lg:w-6/12 pr-5">
+      <label className="flex flex-grow items-center relative w-1/3 lg:w-6/12 pr-5 md:pr-0">
         <p className="hidden">Filter by title, company, expertise</p>
         <SearchIcon className="absolute left-5 text-violet-dark" />
-        <input value={query} type="text" className="outline-none dark:bg-blue-dark p-[1.375rem] pl-14 rounded-md placeholder-grey-med flex-grow truncate" placeholder="Filter by title, companies, expertise..." onChange={(e) => setQuery(e.target.value)} />
+        <input
+          value={query}
+          type="text"
+          className="focus:outline-none focus:ring focus:ring-violet-light focus:z-40 focus:border-violet-dark dark:bg-blue-dark p-[1.375rem] pl-14 rounded-md sm:rounded-l-md placeholder-grey-med flex-grow truncate w-full"
+          placeholder="Filter by title, companies, expertise..."
+          onChange={(e) => setQuery(e.target.value)}
+        />
         <div className="md:hidden px-4" onClick={() => setModalOpen()}>
           <FilterIcon />
         </div>
@@ -78,19 +84,25 @@ const Search = ({ setData }) => {
       <label className="hidden md:flex items-center relative w-1/3">
         <p className="hidden">Filter by location</p>
         <LocationIcon className="absolute left-5" />
-        <input value={location} type="text" className="outline-none dark:bg-blue-dark p-[1.375rem] pl-12 border-r-[1px] border-l-[1px] dark:border-grey-btn w-full" placeholder="Filter by location" onChange={(e) => setLocation(e.target.value)} />
+        <input
+          value={location}
+          type="text"
+          className="focus:outline-none focus:z-40 focus:ring focus:ring-violet-light focus:border-violet-dark dark:bg-blue-dark p-[1.375rem] pl-12 border-r-[1px] border-l-[1px] dark:border-grey-btn w-full"
+          placeholder="Filter by location"
+          onChange={(e) => setLocation(e.target.value)}
+        />
       </label>
       <div className="hidden md:flex justify-between items-center relative bg-white dark:bg-blue-dark dark:text-grey-med p-3 font-semibold text-blue-dark  cursor-pointer rounded-r-md w-1/3">
-        <label className="">
+        <label>
           <div className="flex place-items-center">
-            <input checked={contract} type="checkbox" className="checkbox hidden" onChange={(e) => setContract(e.target.checked)} />
+            <input checked={contract} type="checkbox" className="checkbox w-0 h-0" onChange={(e) => setContract(e.target.checked)} />
             <div className="h-[1.2rem] w-[1.2rem] rounded-sm bg-gray-200 dark:bg-gray-700 flex justify-center items-center mx-2">
               <CheckIcon className="hidden" />
             </div>
             Full Time
           </div>
         </label>
-        <Button type="submit" text="Search" className="bg-violet-dark text-white hover:bg-violet-light" />
+        <Button type="submit" text="Search" className="focus:outline-none focus:z-40 focus:ring focus:ring-violet-light focus:border-violet-dark bg-violet-dark text-white hover:bg-violet-light" />
       </div>
     </form>
   );
