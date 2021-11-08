@@ -20,7 +20,7 @@ const Jobs = () => {
   if (!data || data.length === 0) return <p>loading...</p>;
   return (
     <Container className="pb-10 -mt-8">
-      <Search />
+      <Search setData={setData} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 relative z-10 py-10">
         {data.map((item) => (
           <Link to={`../job-detail/${item.id}`} key={item.id} className="flex justify-center w-full">
