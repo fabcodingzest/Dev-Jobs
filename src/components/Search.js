@@ -46,25 +46,36 @@ const Search = ({ setData }) => {
     setData(filteredData);
   };
 
+  const setModalOpen = () => {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.scroll = 'no';
+    setModal(true)
+  }
+  const setModalClose = () => {
+    document.documentElement.style.overflowY = 'scroll';
+    document.body.scroll = 'yes';
+    setModal(false);
+  };
+
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        setModal(false);
+        setModalClose();
         setJobs();
       }}
       className="rounded-md flex bg-white dark:bg-blue-dark text-grey-dark text-[0.8rem] relative"
     >
       {modal && (
-        <div className="w-full flex md:hidden justify-center items-center flex-col fixed inset-0 z-40">
-          <div onClick={() => setModal(false)} className="fixed z-40 inset-0 bg-black bg-opacity-40"></div>
-          <div className="max-w-[40rem] z-50">
-            <label className="flex items-center relative">
+        <div className="w-full flex md:hidden justify-center items-center flex-col fixed inset-0 z-40 overflow-hidden min-h-screen min-w-screen">
+          <div onClick={() => setModalClose()} className="fixed z-40 inset-0 bg-black bg-opacity-40"></div>
+          <div className="w-full max-w-xs z-50">
+            <label className="flex relative w-full">
               <p className="hidden">Filter by location</p>
               <LocationIcon className="absolute inset-5" />
-              <input value={location} type="text" className="outline-none dark:bg-blue-dark p-5 pl-12 border-b-[1px] dark:border-grey-btn rounded-t-md" placeholder="Filter by location" onChange={(e) => setLocation(e.target.value)} />
+              <input value={location} type="text" className="w-full outline-none dark:bg-blue-dark p-5 pl-12 border-b-[1px] dark:border-grey-btn rounded-t-md" placeholder="Filter by location" onChange={(e) => setLocation(e.target.value)} />
             </label>
-            <div className="flex flex-col relative bg-white dark:bg-blue-dark dark:text-grey-med py-6 px-4 font-semibold text-blue-dark  cursor-pointer rounded-b-md w-full">
+            <div className="flex flex-col relative bg-white dark:bg-blue-dark dark:text-grey-med p-6 font-semibold text-blue-dark  cursor-pointer rounded-b-md">
               <label className="pb-4">
                 <div className="flex place-items-center">
                   <input type="checkbox" className="checkbox hidden" onChange={(e) => setContract(e.target.checked)} />
@@ -83,7 +94,7 @@ const Search = ({ setData }) => {
         <p className="hidden">Filter by title, company, expertise</p>
         <SearchIcon className="absolute left-5 text-violet-dark" />
         <input value={query} type="text" className="outline-none dark:bg-blue-dark p-[1.375rem] pl-14 rounded-md placeholder-grey-med flex-grow truncate" placeholder="Filter by title, companies, expertise..." onChange={(e) => setQuery(e.target.value)} />
-        <div className="md:hidden px-4" onClick={() => setModal(true)}>
+        <div className="md:hidden px-4" onClick={() => setModalOpen()}>
           <FilterIcon />
         </div>
         <Button type="submit" icon={<SearchIcon className="text-white" />} className="bg-violet-dark text-white hover:bg-violet-light md:hidden px-2" />
