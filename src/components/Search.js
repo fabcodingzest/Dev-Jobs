@@ -15,42 +15,18 @@ const Search = ({ setData }) => {
 
   const setJobs = async () => {
     const data = await getData();
-    let filteredData;
-    const matchLocation = (dataItem) => {
-      return dataItem.location.toLowerCase().includes(location);
-    };
-    const matchQuery = (dataItem) => {
-      return dataItem.company.toLowerCase().includes(query.toLowerCase()) || dataItem.position.toLowerCase().includes(query.toLowerCase());
-    };
-    const matchContract = (dataItem) => {
-      return dataItem.contract === 'Full Time';
-    };
-    if (location !== '' && query !== '' && contract) {
-      filteredData = data.filter((item) => matchLocation(item) && matchQuery(item) && matchContract(item));
-    }
-    if (location !== '' && query !== '') {
-      filteredData = data.filter((item) => (contract ? matchLocation(item) && matchQuery(item) && matchContract(item) : matchLocation(item) && matchQuery(item)));
-    }
-    if (location === '' && query !== '') {
-      filteredData = data.filter((item) => (contract ? matchQuery(item) && matchContract(item) : matchQuery(item)));
-    }
-    if (location !== '' && query === '') {
-      filteredData = data.filter((item) => {
-        return contract ? matchLocation(item) && matchContract(item) : matchLocation(item);
-      });
-    }
-    if (location === '' && query === '') {
-      filteredData = data.filter((item) => (contract ? matchContract(item) : true));
-    }
-
+    const filteredData = data
+      .filter((item) => (query !== '' ? item.company.toLowerCase().includes(query.toLowerCase()) || item.position.toLowerCase().includes(query.toLowerCase()) : true))
+      .filter((item) => (location !== '' ? item.location.toLowerCase().includes(location) : true))
+      .filter((item) => (contract ? item.contract === 'Full Time' : true));
     setData(filteredData);
   };
 
   const setModalOpen = () => {
     document.documentElement.style.overflow = 'hidden';
     document.body.scroll = 'no';
-    setModal(true)
-  }
+    setModal(true);
+  };
   const setModalClose = () => {
     document.documentElement.style.overflowY = 'scroll';
     document.body.scroll = 'yes';
