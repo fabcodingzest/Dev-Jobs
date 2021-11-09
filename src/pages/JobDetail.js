@@ -7,14 +7,14 @@ import Container from '../components/Container';
 const JobDetail = () => {
   const { id } = useParams();
   const [details, setDetails] = useState();
-  const setState = async () => {
-    const data = await getData();
-    const [jobDetails] = data.filter((job) => job.id.toString() === id);
-    setDetails(jobDetails);
-  };
   useEffect(() => {
+    const setState = async () => {
+      const data = await getData();
+      const [jobDetails] = data.filter((job) => job.id.toString() === id);
+      setDetails(jobDetails);
+    };
     setState();
-  });
+  }, [id]);
   if (!details || details.length === 0) return <p>loading...</p>;
   return (
     <>
@@ -31,7 +31,7 @@ const JobDetail = () => {
           </div>
           <div className="sm:w-4/12 flex justify-end">
             <a target="blank" rel="noopener noreferrer" href={details.website}>
-              <Button text="Comapany Site" className="bg-violet-dark bg-opacity-10 text-violet-dark hover:bg-violet-dark hover:bg-opacity-40 text-xs md:text-sm xl:px-4" />
+              <Button text="Comapany Site" className="bg-violet-dark bg-opacity-10 text-violet-dark hover:bg-violet-dark hover:bg-opacity-40 dark:bg-grey-btn dark:text-white dark:hover:bg-grey-hover text-xs md:text-sm xl:px-4" />
             </a>
           </div>
         </div>
@@ -46,7 +46,9 @@ const JobDetail = () => {
               <h2 className="font-bold py-1 lg:text-2xl">{details.position}</h2>
               <p className="text-xs text-violet-dark font-bold pt-1">{details.location}</p>
             </div>
-            <Button text="Load More" className="bg-violet-dark text-white hover:bg-violet-light text-xs md:text-sm" />
+            <a target="blank" rel="noopener noreferrer" href={details.apply}>
+              <Button text="Apply Now" className="bg-violet-dark text-white hover:bg-violet-light text-xs md:text-sm" />
+            </a>
           </div>
           <p className="text-xs text-grey-dark py-5 leading-5">{details.description}</p>
           <h3 className="font-bold">Requirements</h3>
