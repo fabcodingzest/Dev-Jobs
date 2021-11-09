@@ -37,8 +37,6 @@ const Jobs = () => {
           </div>
           <div className="flex justify-center pb-10">
             <Button text="Load More" className="bg-violet-dark text-white hover:bg-violet-light" />
-            {/* <Button text="Load More" className="bg-violet-dark bg-opacity-10 text-violet-dark hover:bg-violet-dark hover:bg-opacity-40" />
-          <Button text="Load More" className="bg-grey-btn text-white hover:bg-grey-hover" /> */}
           </div>
         </>
       )}
