@@ -16,6 +16,9 @@ const JobDetail = () => {
     setState();
   }, [id]);
   if (!details || details.length === 0) return <p>loading...</p>;
+  const roleItems = details.roleItems.split('').slice(2, -2).join('').split("', '");
+  const reqItems = details.reqItems.split('').slice(2, -2).join('').split("', '");
+
   return (
     <>
       <Container className="pb-10 -mt-8 md:mx-auto md:max-w-[36.5rem] lg:max-w-[36.5rem]">
@@ -52,18 +55,18 @@ const JobDetail = () => {
           </div>
           <p className="text-xs text-grey-dark py-5 leading-5">{details.description}</p>
           <h3 className="font-bold">Requirements</h3>
-          <p className="text-xs text-grey-dark pt-5 leading-5">{details.requirements.content}</p>
+          <p className="text-xs text-grey-dark pt-5 leading-5">{details.reqContent}</p>
           <ul className="py-5 leading-5 px-3 md:px-[1rem] list-disc text-xs text-grey-dark">
-            {details.requirements.items.map((item, i) => (
+            {reqItems.map((item, i) => (
               <li className="pl-2 md:pl-5" key={i}>
                 {item}
               </li>
             ))}
           </ul>
           <h3 className="font-bold">What You Will Do</h3>
-          <p className="text-xs text-grey-dark pt-5 leading-5">{details.role.content}</p>
+          <p className="text-xs text-grey-dark pt-5 leading-5">{details.roleContent}</p>
           <ul className="py-5 leading-5 px-3 md:px-[1rem] list-disc text-xs text-grey-dark">
-            {details.role.items.map((item, i) => (
+            {roleItems.map((item, i) => (
               <li className="pl-2 md:pl-5" key={i}>
                 {item}
               </li>
