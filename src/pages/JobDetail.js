@@ -73,7 +73,7 @@ const JobDetail = () => {
           </ul>
         </div>
       </Container>
-      <footer className="bottom-0 py-4 px-8 bg-white dark:bg-blue-dark">
+      <div className="bottom-0 py-4 px-8 bg-white dark:bg-blue-dark">
         <div className="w-full max-w-xl mx-auto flex justify-between items-center">
           <div>
             <h2 className="font-bold py-1 lg:text-lg">{detail.position}</h2>
@@ -83,7 +83,7 @@ const JobDetail = () => {
             <Button text="Apply Now" className="bg-violet-dark text-white hover:bg-violet-light text-xs md:text-sm" />
           </a>
         </div>
-      </footer>
+      </div>
     </>
   );
 };
