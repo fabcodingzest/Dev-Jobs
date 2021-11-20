@@ -46,7 +46,7 @@ const Search = ({ setData }) => {
         setModalClose();
         setJobs();
       }}
-      className="rounded-md flex bg-white dark:bg-blue-dark text-grey-dark text-[0.8rem] relative"
+      className="rounded-md flex bg-white dark:bg-blue-dark text-blue-dark dark:text-grey-light text-[0.8rem] relative"
     >
       {modal && (
         <div className="w-full flex md:hidden justify-center items-center flex-col fixed inset-0 z-40 overflow-hidden min-h-screen min-w-screen">
@@ -55,7 +55,7 @@ const Search = ({ setData }) => {
             <label className="flex relative w-full">
               <p className="hidden">Filter by location</p>
               <LocationIcon className="absolute inset-5" />
-              <input value={location} type="text" className="w-full outline-none dark:bg-blue-dark p-5 pl-12 border-b-[1px] dark:border-grey-btn rounded-t-md" placeholder="Filter by location" onChange={(e) => setLocation(e.target.value)} />
+              <input value={location} type="text" className="w-full outline-none dark:bg-blue-dark p-5 pl-12 border-b-[1px] dark:border-grey-btn rounded-t-md placeholder-grey-med" placeholder="Filter by location" onChange={(e) => setLocation(e.target.value)} />
             </label>
             <div className="flex flex-col relative bg-white dark:bg-blue-dark dark:text-grey-med p-6 font-semibold text-blue-dark  cursor-pointer rounded-b-md">
               <label className="pb-4">
@@ -93,7 +93,7 @@ const Search = ({ setData }) => {
         <input
           value={location}
           type="text"
-          className="focus:outline-none focus:z-30 focus:ring focus:ring-violet-light focus:border-violet-dark dark:bg-blue-dark p-[1.375rem] pl-12 border-r-[1px] border-l-[1px] dark:border-grey-btn w-full"
+          className="focus:outline-none focus:z-30 focus:ring focus:ring-violet-light focus:border-violet-dark dark:bg-blue-dark p-[1.375rem] pl-12 border-r-[1px] border-l-[1px] dark:border-grey-btn w-full placeholder-grey-med"
           placeholder="Filter by location"
           onChange={(e) => setLocation(e.target.value)}
         />
