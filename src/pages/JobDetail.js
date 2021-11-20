@@ -44,7 +44,7 @@ const JobDetail = () => {
                 <span className="font-extrabold px-1.5">.</span>
                 {details.contract}
               </p>
-              <h2 className="font-bold py-1 lg:text-2xl">{details.position}</h2>
+              <p className="font-bold py-1 lg:text-2xl">{details.position}</p>
               <p className="text-xs text-violet-dark font-bold pt-1">{details.location}</p>
             </div>
             <a target="blank" rel="noopener noreferrer" href={details.apply}>
@@ -75,7 +75,7 @@ const JobDetail = () => {
       <footer className="bottom-0 py-4 px-8 bg-white dark:bg-blue-dark">
         <div className="w-full max-w-xl mx-auto flex justify-between items-center">
           <div>
-            <h2 className="font-bold py-1 lg:text-lg">{details.position}</h2>
+            <p className="font-bold py-1 lg:text-lg">{details.position}</p>
             <p className="text-grey-dark text-xs">{details.company}</p>
           </div>
           <a target="blank" rel="noopener noreferrer" href={details.apply}>

@@ -10,7 +10,7 @@ const Header = () => {
       <Container>
         <div className="pt-[1.6rem] md:pt-[2.1rem] flex justify-between">
           <Link to="../">
-            <img width={115} height={32} src={Logo} alt="Dev Jobs" />
+            <h1 className="text-3xl font-extrabold text-white">devjobs</h1>
           </Link>
           <ModeSwitch />
         </div>
