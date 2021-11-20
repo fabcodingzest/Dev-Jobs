@@ -6,11 +6,11 @@ import Button from '../components/Button';
 const NotFound = () => {
   const navigate = useNavigate();
   return (
-    <div className="max-w-sm mx-auto flex flex-col justify-center items-center text-center">
+    <main className="max-w-sm mx-auto flex flex-col justify-center items-center text-center">
       <p className="py-10 text-2xl">Resource not found...</p>
       <img className="max-w-full pb-10" src={NotFoundImg} alt="Not found" />
       <Button onClick={() => navigate(-1)} text="Go Back" className="bg-violet-dark text-white hover:bg-violet-light" />
-    </div>
+    </main>
   );
 };
 

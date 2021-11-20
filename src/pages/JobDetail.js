@@ -18,7 +18,7 @@ const JobDetail = () => {
   }, [id]);
   if (!details || details.length === 0) return <Loader />;
   return (
-    <>
+    <main>
       <Container className="pb-10 -mt-8 md:mx-auto md:max-w-[36.5rem] lg:max-w-[36.5rem]">
         <div className="bg-white dark:bg-blue-dark px-[2rem] pb-[2rem] sm:px-0 sm:py-0 sm:pr-8 relative w-full min-h-[10.65rem] sm:min-h-[7rem] max-w-[22rem] sm:max-w-full flex flex-col sm:flex-row justify-between items-center mx-auto rounded-md">
           <div className="flex justify-center w-full sm:w-3/12 self-stretch">
@@ -83,7 +83,7 @@ const JobDetail = () => {
           </a>
         </div>
       </footer>
-    </>
+    </main>
   );
 };
 
