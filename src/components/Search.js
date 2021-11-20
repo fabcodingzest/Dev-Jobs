@@ -109,7 +109,7 @@ const Search = ({ setData }) => {
       <div className="hidden md:flex justify-between items-center relative bg-white dark:bg-blue-dark dark:text-grey-med p-3 font-semibold text-blue-dark  cursor-pointer rounded-r-md w-1/3">
         <label>
           <span className="flex place-items-center">
-            <input checked={contract} type="checkbox" className="checkbox w-0 h-0" onChange={(e) => setContract(e.target.checked)} />
+            <input checked={contract} type="checkbox" className="checkbox w-0 h-0 opacity-0" onChange={(e) => setContract(e.target.checked)} />
             <span className="h-[1.2rem] w-[1.2rem] rounded-sm bg-gray-200 dark:bg-gray-700 flex justify-center items-center mx-2">
               <CheckIcon className="hidden" />
             </span>
