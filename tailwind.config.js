@@ -9,6 +9,8 @@ module.exports = {
       },
       backgroundImage: {
         'header-desktop': `url('/src/assets/desktop/bg-pattern-header.svg')`,
+        'header-tablet': `url('/src/assets/tablet/bg-pattern-header.svg')`,
+        'header-mobile': `url('/src/assets/mobile/bg-pattern-header.svg')`,
       },
       colors: {
         violet: {
