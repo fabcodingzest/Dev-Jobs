@@ -13,6 +13,7 @@ const Search = ({ setData }) => {
   const [contract, setContract] = useSafeLocalStorage('contract', false);
   const [modal, setModal] = useState(false);
   const locationFilterRef = useRef();
+  const queryRef = useRef();
 
   const setJobs = async () => {
     const data = await getData();
@@ -27,9 +28,6 @@ const Search = ({ setData }) => {
     document.documentElement.style.overflowY = 'hidden';
     document.body.scroll = 'no';
     setModal(true);
-    if (modal) {
-      locationFilterRef.current.focus();
-    }
   };
   const setModalClose = () => {
     document.documentElement.style.overflowY = 'scroll';
@@ -40,6 +38,8 @@ const Search = ({ setData }) => {
   useEffect(() => {
     if (modal) {
       locationFilterRef.current.focus();
+    } else {
+      queryRef.current.focus();
     }
   }, [modal]);
 
@@ -58,12 +58,12 @@ const Search = ({ setData }) => {
           <div className="w-full max-w-xs z-50 bg-white rounded-md">
             <label className="flex relative w-full">
               <p className="hidden">Filter by location</p>
-              <LocationIcon className="absolute inset-5" />
+              <LocationIcon className="absolute inset-5 z-50" />
               <input
                 ref={locationFilterRef}
                 value={location}
                 type="text"
-                className="w-full focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark dark:bg-blue-dark p-5 pl-12 border-b-[1px] dark:border-grey-btn rounded-t-md placeholder-grey-med"
+                className="w-full focus:outline-none focus:ring focus:ring-violet-light focus:z-30 dark:bg-blue-dark p-5 pl-12 border-b-[1px] dark:border-grey-btn rounded-t-md rounded-b-none placeholder-grey-med"
                 placeholder="Filter by location"
                 onChange={(e) => setLocation(e.target.value)}
               />
@@ -87,16 +87,17 @@ const Search = ({ setData }) => {
         <span className="hidden">Filter by title, company, expertise</span>
         <SearchIcon className="absolute left-5 text-violet-dark z-50" />
         <input
+          ref={queryRef}
           value={query}
           type="text"
           className="focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark dark:bg-blue-dark p-[1.375rem] pl-14 rounded-md sm:rounded-none sm:rounded-l-md placeholder-grey-med flex-grow truncate w-full"
           placeholder="Filter by title, companies, expertise..."
           onChange={(e) => setQuery(e.target.value)}
         />
-        <span className="block md:hidden" onClick={() => setModalOpen()}>
-          <FilterIcon />
-        </span>
       </label>
+      <span className="block md:hidden px-4" onClick={() => setModalOpen()}>
+        <FilterIcon />
+      </span>
       <Button type="submit" ariaLabel="Search" icon={<SearchIcon className="text-white" />} className="focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark bg-violet-dark text-white hover:bg-violet-light md:hidden mr-4" />
       <label className="hidden group md:flex items-center relative w-1/3">
         <span className="hidden">Filter by location</span>
