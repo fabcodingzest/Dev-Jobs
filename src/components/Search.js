@@ -59,13 +59,13 @@ const Search = ({ setData }) => {
             </label>
             <div className="flex flex-col relative bg-white dark:bg-blue-dark dark:text-grey-med p-6 font-semibold text-blue-dark  cursor-pointer rounded-b-md">
               <label className="pb-4">
-                <div className="flex place-items-center">
+                <span className="flex place-items-center">
                   <input type="checkbox" checked={contract} className="checkbox hidden" onChange={(e) => setContract(e.target.checked)} />
                   <div className="h-[1.2rem] w-[1.2rem] rounded-sm bg-gray-200 dark:bg-gray-700 flex justify-center items-center mr-2">
                     <CheckIcon className="hidden" />
                   </div>
                   Full Time
-                </div>
+                </span>
               </label>
               <Button type="submit" text="Search" className="bg-violet-dark text-white hover:bg-violet-light" />
             </div>
@@ -73,7 +73,7 @@ const Search = ({ setData }) => {
         </div>
       )}
       <label className="flex flex-grow items-center relative w-1/3 lg:w-6/12 pr-3 md:pr-0">
-        <p className="hidden">Filter by title, company, expertise</p>
+        <span className="hidden">Filter by title, company, expertise</span>
         <SearchIcon className="absolute left-5 text-violet-dark z-50" />
         <input
           value={query}
