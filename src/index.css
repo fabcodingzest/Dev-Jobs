@@ -15,22 +15,22 @@ body {
   box-sizing: border-box;
 }
 
-#toggle:checked ~ label div.toggle-dot {
+#toggle:checked ~ label span.toggle-dot {
   @apply translate-x-5;
 }
 
-#toggle:focus ~ label div.toggle-dot{
+#toggle:focus ~ label span.toggle-dot{
   @apply ring ring-violet-light;
 }
 
-.checkbox:checked ~ div {
+.checkbox:checked ~ span {
   @apply bg-violet-dark;
 }
-.checkbox:focus ~ div {
+.checkbox:focus ~ span {
   @apply ring ring-violet-light;
 }
 
-.checkbox:checked ~ div svg {
+.checkbox:checked ~ span svg {
   @apply flex;
 }
 
