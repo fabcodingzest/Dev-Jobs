@@ -28,6 +28,9 @@ const Search = ({ setData }) => {
     document.documentElement.style.overflowY = 'hidden';
     document.body.scroll = 'no';
     setModal(true);
+    if (modal) {
+      locationFilterRef.current.focus();
+    }
   };
   const setModalClose = () => {
     document.documentElement.style.overflowY = 'scroll';
