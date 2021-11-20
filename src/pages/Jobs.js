@@ -17,9 +17,7 @@ const Jobs = () => {
     setData(data);
   };
   useEffect(() => {
-    setTimeout(() => {
-      setState();
-    }, 2000);
+    setState();
   }, []);
   return (
     <main>
@@ -41,9 +39,11 @@ const Jobs = () => {
                 </Link>
               ))}
             </div>
-            {data?.length > 14 && <div className="flex justify-center pb-10">
-              <Button text="Load More" className="bg-violet-dark text-white hover:bg-violet-light" />
-            </div>}
+            {data?.length > 14 && (
+              <div className="flex justify-center pb-10">
+                <Button text="Load More" className="bg-violet-dark text-white hover:bg-violet-light" />
+              </div>
+            )}
           </>
         )}
       </Container>
