@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/desktop/logo.svg';
 import Container from './Container';
 import ModeSwitch from './ModeSwitch';
 
