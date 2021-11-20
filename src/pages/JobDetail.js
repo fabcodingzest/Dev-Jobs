@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import getData from '../api/api';
 import Button from '../components/Button';
 import Container from '../components/Container';
+import Loader from '../components/Loader';
 
 const JobDetail = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const JobDetail = () => {
     };
     setState();
   }, [id]);
-  if (!details || details.length === 0) return <p>loading...</p>;
+  if (!details || details.length === 0) return <Loader />;
   return (
     <>
       <Container className="pb-10 -mt-8 md:mx-auto md:max-w-[36.5rem] lg:max-w-[36.5rem]">
