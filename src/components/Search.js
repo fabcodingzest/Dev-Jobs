@@ -13,7 +13,6 @@ const Search = ({ setData }) => {
   const [contract, setContract] = useSafeLocalStorage('contract', false);
   const [modal, setModal] = useState(false);
   const locationFilterRef = useRef();
-  const formRef = useRef();
 
   const setJobs = async () => {
     const data = await getData();
