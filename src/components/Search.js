@@ -85,7 +85,7 @@ const Search = ({ setData }) => {
         <div className="md:hidden px-4" onClick={() => setModalOpen()}>
           <FilterIcon />
         </div>
-        <Button type="submit" icon={<SearchIcon className="text-white" />} className="focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark bg-violet-dark text-white hover:bg-violet-light md:hidden px-2" />
+        <Button type="submit" ariaLabel="Search" icon={<SearchIcon className="text-white" />} className="focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark bg-violet-dark text-white hover:bg-violet-light md:hidden px-2" />
       </label>
       <label className="hidden group md:flex items-center relative w-1/3">
         <p className="hidden">Filter by location</p>
