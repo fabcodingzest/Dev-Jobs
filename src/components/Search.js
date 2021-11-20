@@ -13,6 +13,7 @@ const Search = ({ setData }) => {
   const [contract, setContract] = useSafeLocalStorage('contract', false);
   const [modal, setModal] = useState(false);
   const locationFilterRef = useRef();
+  const formRef = useRef();
 
   const setJobs = async () => {
     const data = await getData();
@@ -52,7 +53,7 @@ const Search = ({ setData }) => {
       {modal && (
         <div className="w-full flex md:hidden justify-center items-center flex-col fixed inset-0 z-40 overflow-hidden min-h-screen min-w-screen">
           <div onClick={() => setModalClose()} className="fixed z-50 inset-0 bg-black bg-opacity-40"></div>
-          <div className="w-full max-w-xs z-50">
+          <div className="w-full max-w-xs z-50 bg-white rounded-md">
             <label className="flex relative w-full">
               <p className="hidden">Filter by location</p>
               <LocationIcon className="absolute inset-5" />
@@ -60,7 +61,7 @@ const Search = ({ setData }) => {
                 ref={locationFilterRef}
                 value={location}
                 type="text"
-                className="w-full focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark dark:bg-blue-dark p-5 pl-12 border-b-[1px] dark:border-grey-btn rounded-t-md rounded-b-0 placeholder-grey-med"
+                className="w-full focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark dark:bg-blue-dark p-5 pl-12 border-b-[1px] dark:border-grey-btn rounded-t-md placeholder-grey-med"
                 placeholder="Filter by location"
                 onChange={(e) => setLocation(e.target.value)}
               />
