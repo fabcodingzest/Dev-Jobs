@@ -46,7 +46,7 @@ const Search = ({ setData }) => {
         setModalClose();
         setJobs();
       }}
-      className="rounded-md flex bg-white dark:bg-blue-dark text-blue-dark dark:text-grey-light text-[0.8rem] relative"
+      className="rounded-md flex justify-center items-center bg-white dark:bg-blue-dark text-blue-dark dark:text-grey-light text-[0.8rem] relative"
     >
       {modal && (
         <div className="w-full flex md:hidden justify-center items-center flex-col fixed inset-0 z-40 overflow-hidden min-h-screen min-w-screen">
@@ -72,7 +72,7 @@ const Search = ({ setData }) => {
           </div>
         </div>
       )}
-      <label className="flex flex-grow items-center relative w-1/3 lg:w-6/12 pr-5 md:pr-0">
+      <label className="flex flex-grow items-center relative w-1/3 lg:w-6/12 pr-3 md:pr-0">
         <p className="hidden">Filter by title, company, expertise</p>
         <SearchIcon className="absolute left-5 text-violet-dark z-50" />
         <input
@@ -82,13 +82,13 @@ const Search = ({ setData }) => {
           placeholder="Filter by title, companies, expertise..."
           onChange={(e) => setQuery(e.target.value)}
         />
-        <div className="md:hidden px-4" onClick={() => setModalOpen()}>
+        <span className="block md:hidden" onClick={() => setModalOpen()}>
           <FilterIcon />
-        </div>
-        <Button type="submit" ariaLabel="Search" icon={<SearchIcon className="text-white" />} className="focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark bg-violet-dark text-white hover:bg-violet-light md:hidden px-2" />
+        </span>
       </label>
+        <Button type="submit" ariaLabel="Search" icon={<SearchIcon className="text-white" />} className="focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark bg-violet-dark text-white hover:bg-violet-light md:hidden mr-4" />
       <label className="hidden group md:flex items-center relative w-1/3">
-        <p className="hidden">Filter by location</p>
+        <span className="hidden">Filter by location</span>
         <LocationIcon className="absolute left-5 z-40" />
         <input
           value={location}
