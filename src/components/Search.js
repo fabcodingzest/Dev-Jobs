@@ -61,9 +61,9 @@ const Search = ({ setData }) => {
               <label className="pb-4">
                 <span className="flex place-items-center">
                   <input type="checkbox" checked={contract} className="checkbox hidden" onChange={(e) => setContract(e.target.checked)} />
-                  <div className="h-[1.2rem] w-[1.2rem] rounded-sm bg-gray-200 dark:bg-gray-700 flex justify-center items-center mr-2">
+                  <span className="h-[1.2rem] w-[1.2rem] rounded-sm bg-gray-200 dark:bg-gray-700 flex justify-center items-center mr-2">
                     <CheckIcon className="hidden" />
-                  </div>
+                  </span>
                   Full Time
                 </span>
               </label>
@@ -100,13 +100,13 @@ const Search = ({ setData }) => {
       </label>
       <div className="hidden md:flex justify-between items-center relative bg-white dark:bg-blue-dark dark:text-grey-med p-3 font-semibold text-blue-dark  cursor-pointer rounded-r-md w-1/3">
         <label>
-          <div className="flex place-items-center">
+          <span className="flex place-items-center">
             <input checked={contract} type="checkbox" className="checkbox w-0 h-0" onChange={(e) => setContract(e.target.checked)} />
-            <div className="h-[1.2rem] w-[1.2rem] rounded-sm bg-gray-200 dark:bg-gray-700 flex justify-center items-center mx-2">
+            <span className="h-[1.2rem] w-[1.2rem] rounded-sm bg-gray-200 dark:bg-gray-700 flex justify-center items-center mx-2">
               <CheckIcon className="hidden" />
-            </div>
+            </span>
             Full Time
-          </div>
+          </span>
         </label>
         <Button type="submit" text="Search" className="focus:outline-none focus:z-40 focus:ring focus:ring-violet-light focus:border-violet-dark bg-violet-dark text-white hover:bg-violet-light" />
       </div>
