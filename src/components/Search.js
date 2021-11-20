@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ReactComponent as SearchIcon } from '../assets/desktop/icon-search.svg';
 import { ReactComponent as LocationIcon } from '../assets/desktop/icon-location.svg';
 import { ReactComponent as CheckIcon } from '../assets/desktop/icon-check.svg';
@@ -12,6 +12,7 @@ const Search = ({ setData }) => {
   const [location, setLocation] = useSafeLocalStorage('location', '');
   const [contract, setContract] = useSafeLocalStorage('contract', false);
   const [modal, setModal] = useState(false);
+  const locationFilterRef = useRef();
 
   const setJobs = async () => {
     const data = await getData();
@@ -33,11 +34,11 @@ const Search = ({ setData }) => {
     setModal(false);
   };
 
-  // CLEAN UP THE CODE
-    // Make Input Component
-    // Make Filter Component with Search Button
-    // Make them customizable as a person wants except for base styles like dark theme, padding etc
-    // Manage them to look exactly like they are now
+  useEffect(() => {
+    if (modal) {
+      locationFilterRef.current.focus();
+    }
+  }, [modal]);
 
   return (
     <form
@@ -55,19 +56,26 @@ const Search = ({ setData }) => {
             <label className="flex relative w-full">
               <p className="hidden">Filter by location</p>
               <LocationIcon className="absolute inset-5" />
-              <input value={location} type="text" className="w-full outline-none dark:bg-blue-dark p-5 pl-12 border-b-[1px] dark:border-grey-btn rounded-t-md placeholder-grey-med" placeholder="Filter by location" onChange={(e) => setLocation(e.target.value)} />
+              <input
+                ref={locationFilterRef}
+                value={location}
+                type="text"
+                className="w-full focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark dark:bg-blue-dark p-5 pl-12 border-b-[1px] dark:border-grey-btn rounded-t-md rounded-b-0 placeholder-grey-med"
+                placeholder="Filter by location"
+                onChange={(e) => setLocation(e.target.value)}
+              />
             </label>
             <div className="flex flex-col relative bg-white dark:bg-blue-dark dark:text-grey-med p-6 font-semibold text-blue-dark  cursor-pointer rounded-b-md">
               <label className="pb-4">
                 <span className="flex place-items-center">
-                  <input type="checkbox" checked={contract} className="checkbox hidden" onChange={(e) => setContract(e.target.checked)} />
+                  <input type="checkbox" checked={contract} className="checkbox block opacity-0 h-0 w-0" onChange={(e) => setContract(e.target.checked)} />
                   <span className="h-[1.2rem] w-[1.2rem] rounded-sm bg-gray-200 dark:bg-gray-700 flex justify-center items-center mr-2">
                     <CheckIcon className="hidden" />
                   </span>
                   Full Time
                 </span>
               </label>
-              <Button type="submit" text="Search" className="bg-violet-dark text-white hover:bg-violet-light" />
+              <Button type="submit" text="Search" className="focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark bg-violet-dark text-white hover:bg-violet-light" />
             </div>
           </div>
         </div>
@@ -86,7 +94,7 @@ const Search = ({ setData }) => {
           <FilterIcon />
         </span>
       </label>
-        <Button type="submit" ariaLabel="Search" icon={<SearchIcon className="text-white" />} className="focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark bg-violet-dark text-white hover:bg-violet-light md:hidden mr-4" />
+      <Button type="submit" ariaLabel="Search" icon={<SearchIcon className="text-white" />} className="focus:outline-none focus:ring focus:ring-violet-light focus:z-30 focus:border-violet-dark bg-violet-dark text-white hover:bg-violet-light md:hidden mr-4" />
       <label className="hidden group md:flex items-center relative w-1/3">
         <span className="hidden">Filter by location</span>
         <LocationIcon className="absolute left-5 z-40" />
